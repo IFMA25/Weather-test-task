@@ -1,0 +1,14 @@
+import { createPinia } from "pinia";
+import { createApp } from "vue";
+
+import App from "./App.vue";
+import "./main.scss";
+
+// Create Vue app instance
+const app = createApp(App);
+
+// Install plugins
+app.use(createPinia());
+
+// Mount the app
+app.mount("#app");

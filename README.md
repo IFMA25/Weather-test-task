@@ -1,0 +1,1 @@
+# Weather app test task built with Vue 3, TypeScript, Pinia, Axios and Chart.js
