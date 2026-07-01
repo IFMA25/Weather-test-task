@@ -70,11 +70,11 @@ watch(
   position: fixed;
   white-space: nowrap;
   min-width: 2.5rem;
-  border: 1px solid $primary;
-  background-color: $primary;
-  box-shadow: 0 0 10px $primary;
+  border: 1px solid $black;
+  background-color: white;
+  box-shadow: 0 0 10px $black;
   border-radius: $radius-sm;
-  color: $primary;
+  color: $black;
   translate: all duration-50;
   z-index: 100;
 }

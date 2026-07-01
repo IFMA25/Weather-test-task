@@ -84,6 +84,7 @@ const btnClasses = computed(() => [
 </template>
 
 <style lang="scss" scoped>
+@use "@/shared/styles/variables.scss" as *;
 .btn {
   display: inline-flex;
   align-items: center;
@@ -102,30 +103,14 @@ const btnClasses = computed(() => [
   &--main {
     padding: 0.625rem 1.25rem;
     border-radius: 0.5rem;
-    background-color: #1a1413;
+    background-color: $black;
     color: #fff;
     font-weight: 500;
-
-    &:hover:not(.btn--disabled) {
-      background-color: lighten(#1a1413, 12%);
-    }
-
-    &:active:not(.btn--disabled) {
-      background-color: darken(#1a1413, 4%);
-    }
   }
 
   &--icon {
     padding: 0.5rem;
     border-radius: 50%;
-
-    &:hover:not(.btn--disabled) {
-      background-color: rgba(#1a1413, 0.08);
-    }
-
-    &:active:not(.btn--disabled) {
-      background-color: rgba(#1a1413, 0.16);
-    }
   }
 
   &--nav-active {

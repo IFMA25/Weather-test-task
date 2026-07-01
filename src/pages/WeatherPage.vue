@@ -1,1 +1,5 @@
-// file for weather page
+<template>
+  <div class="weather">
+    <h1>Weather</h1>
+  </div>
+</template>

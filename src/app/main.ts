@@ -4,7 +4,9 @@ import VueFeather from "vue-feather";
 
 import App from "./App.vue";
 import router from "./router/router";
+
 import "./main.scss";
+import i18n from "@/shared/i18n/index.js";
 
 const app = createApp(App);
 
@@ -12,6 +14,7 @@ app.component(VueFeather.name, VueFeather);
 
 app.use(router);
 app.use(createPinia());
+app.use(i18n);
 
 router.isReady().then(() => {
   app.mount("#app");
