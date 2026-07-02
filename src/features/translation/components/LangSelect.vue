@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
+import { supportedLocales } from "@/shared/config/locale";
 import {
   useLanguageStore,
-} from "@/features/translation/store/useLanguageStore";
-import { supportedLocales } from "@/shared/config/locale";
+} from "@/shared/i18n/store/useLanguageStore";
 import VSelect from "@/shared/ui/base/VSelect.vue";
 
 

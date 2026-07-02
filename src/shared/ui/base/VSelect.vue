@@ -3,7 +3,9 @@ import { computed } from "vue";
 import VueFeather from "vue-feather";
 import Multiselect from "vue-multiselect";
 
-import { Option } from "@/shared/types";
+export interface Option {
+  [key: string]: unknown;
+}
 
 interface Props {
   id:string;

@@ -2,5 +2,18 @@
     "nav": {
         "weather": "Weather",
         "favorites": "Favorites"
+    },
+    "citySearchInput": {
+        "placeholder": "Search city",
+        "error": "Failed to load cities"
+    },
+    "weather": {
+        "error": "Failed to load weather",
+        "cityAlreadyAdded": "City already added",
+        "selectCity": "Select city to view weather"
+    },
+    "geo": {
+        "error": "Failed to load geo location"
     }
+
 }
