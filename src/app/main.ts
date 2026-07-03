@@ -6,6 +6,7 @@ import App from "./App.vue";
 import router from "./router/router";
 
 import "./main.scss";
+import "vue-multiselect/dist/vue-multiselect.min.css";
 import i18n from "@/shared/i18n/index.js";
 
 const app = createApp(App);

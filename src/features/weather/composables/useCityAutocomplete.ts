@@ -43,10 +43,17 @@ export const useCityAutocomplete = () => {
     autocompleteState.isOpen = false;
   };
 
-  const resetUiState = () => {
+  const resetState = () => {
     clearResults();
     autocompleteState.error = null;
     autocompleteState.isLoading = false;
+  };
+
+  const reset = () => {
+    clearDebounce();
+    abortRequest();
+    autocompleteState.query = "";
+    resetState();
   };
 
   const selectCity = (city: CityOptionDto) => {
@@ -103,7 +110,7 @@ export const useCityAutocomplete = () => {
 
       if (normalizedValue.length < MIN_QUERY_LENGTH) {
         abortRequest();
-        resetUiState();
+        resetState();
         return;
       }
 
@@ -121,5 +128,6 @@ export const useCityAutocomplete = () => {
   return {
     ...toRefs(autocompleteState),
     selectCity,
+    reset,
   };
 };

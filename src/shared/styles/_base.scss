@@ -5,13 +5,18 @@ html {
   height: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 body {
-  min-width: 360px;
+  min-width: 22.5rem;
   min-height: 100vh;
   color: $black;
   font-family: $font-inter-regular;
   font-size: 16px;
   line-height: 1.5;
+  background: url(../../assets/image/952.jpg) no-repeat center / cover;
 }
 
 a {

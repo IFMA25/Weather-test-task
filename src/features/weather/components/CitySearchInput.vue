@@ -5,8 +5,8 @@ import { ref } from "vue";
 import { useCityAutocomplete } from "../composables/useCityAutocomplete";
 import type { CityOptionDto } from "../types";
 
-import VInput from "@/shared/ui/base/VInput.vue";
-import VSkeleton from "@/shared/ui/base/VSkeleton.vue";
+import VInput from "@/shared/components/base/VInput.vue";
+import VSkeleton from "@/shared/components/base/VSkeleton.vue";
 
 const SKELETON_COUNT = 5;
 
@@ -26,6 +26,7 @@ const {
   isLoading,
   isOpen,
   selectCity,
+  reset,
 } = useCityAutocomplete();
 
 const onSelect = (city: CityOptionDto) => {
@@ -45,6 +46,10 @@ const closeDropdown = () => {
 
 onClickOutside(rootRef, () => {
   closeDropdown();
+});
+
+defineExpose({
+  reset,
 });
 </script>
 
@@ -107,6 +112,7 @@ onClickOutside(rootRef, () => {
 @use '@/shared/styles/variables.scss' as *;
 .search-input {
   position: relative;
+  width: 90%;
 
   &__wrapper {
     position: absolute;
@@ -117,7 +123,7 @@ onClickOutside(rootRef, () => {
     background-color: white;
     border: 1px solid $black;
     border-top: none;
-    border-radius: 0 0 0.5rem 0.5rem;
+    border-radius: $radius-s;
     box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.12);
   }
 
@@ -133,7 +139,7 @@ onClickOutside(rootRef, () => {
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: #f3f3f3;
+      background-color: var(--color-surface);
     }
 
     &--skeleton {
@@ -153,7 +159,7 @@ onClickOutside(rootRef, () => {
   }
 
   &__meta {
-    color: #666;
+    color: var(--input-meta);
     font-size: 0.875rem;
   }
 }

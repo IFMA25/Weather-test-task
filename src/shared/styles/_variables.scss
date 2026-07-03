@@ -1,4 +1,4 @@
-$containerWidth: 1200px;
+$containerWidth: 75rem;
 
 $xxs: 360px;
 $xs: 576px;
@@ -20,3 +20,99 @@ $font-inter-bold: "Inter-Bold", sans-serif;
 $font-inter-extrabold: "Inter-ExtraBold", sans-serif;
 
 
+:root {
+  --color-text: #183153;
+  --color-text-secondary: #4b6480;
+  --color-text-inverse: #ffffff;
+
+  --color-bg: #f7fbff;
+  --color-bg-img: #fff;
+  --color-surface: #ebeff3;
+  --color-surface-soft: #f2f8fc;
+
+  --color-border: rgba(24, 49, 83, 0.14);
+  --color-shadow: rgba(24, 49, 83, 0.12);
+
+  --color-primary: #3f7fd8;
+  --color-primary-hover: #2f6fc7;
+  --color-primary-active: #245ead;
+
+  --color-accent: #fff2b8;
+  --color-info: #a9dcff;
+
+  --header-bg: linear-gradient(to right, #a9dcff 0%, #fff2b8 100%);
+  --header-text: #183153;
+
+  --nav-bg: rgba(255, 255, 255, 0.35);
+  --nav-bg-hover: rgba(255, 255, 255, 0.55);
+  --nav-text: #183153;
+
+  --select-bg: rgba(255, 255, 255, 0.78);
+  --select-border: rgba(24, 49, 83, 0.2);
+  --select-text: #183153;
+
+  --input-bg: #ffffff;
+  --input-border: rgba(24, 49, 83, 0.18);
+  --input-text: #183153;
+  --input-placeholder: #e7f0fa;
+  --input-meta: #666;
+
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-action: rgba(224, 222, 222, 0.7);
+  --card-border: rgba(24, 49, 83, 0.12);
+
+  --button-text: #ffffff;
+  --button-bg: #e26e0f;
+  --button-bg-hover: #e09b1b;
+  --button-active: #e26e0f;
+
+  --icon-color: #183153;
+  --color-error: #eb2525;
+}
+
+[data-theme="dark"] {
+  --color-text: #eaf4ff;
+  --color-text-secondary: #b7c9dc;
+  --color-text-inverse: #0f1a2b;
+
+  --color-bg: #0f1724;
+  --color-surface: #162133;
+  --color-surface-soft: #1b2940;
+
+  --color-border: rgba(220, 235, 255, 0.12);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+
+  --color-primary: #6aa8ff;
+  --color-primary-hover: #88b8ff;
+  --color-primary-active: #4e90ef;
+
+  --color-accent: #ffe58f;
+  --color-info: #82cfff;
+
+  --header-bg: linear-gradient(to right, #1e4f8f 0%, #6aa8ff 55%, #ffe58f 100%);
+  --header-text: #f5fbff;
+
+  --nav-bg: rgba(255, 255, 255, 0.08);
+  --nav-bg-hover: rgba(255, 255, 255, 0.14);
+  --nav-border: rgba(255, 255, 255, 0.14);
+  --nav-text: #f5fbff;
+
+  --select-bg: rgba(22, 33, 51, 0.88);
+  --select-border: rgba(255, 255, 255, 0.16);
+  --select-text: #f5fbff;
+
+  --input-bg: #162133;
+  --input-border: rgba(255, 255, 255, 0.16);
+  --input-text: #fbfdff;
+  --input-placeholder: #9ab0c6;
+
+  --card-bg: rgba(22, 33, 51, 0.82);
+  --card-border: rgba(255, 255, 255, 0.1);
+
+  --button-text: #0f1a2b;
+  --button-bg: #ffe58f;
+  --button-bg-hover: #ffd95c;
+
+  --icon-color: #f5fbff;
+  --color-error: #6b0b0b;
+}

@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
+import VSelect from "@/shared/components/base/VSelect.vue";
 import { supportedLocales } from "@/shared/config/locale";
 import {
   useLanguageStore,
 } from "@/shared/i18n/store/useLanguageStore";
-import VSelect from "@/shared/ui/base/VSelect.vue";
+
 
 
 const localeLabels: Record<string, string> = {

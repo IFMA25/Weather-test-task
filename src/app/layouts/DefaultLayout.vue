@@ -3,15 +3,15 @@ import { Toaster } from "vue-sonner";
 
 import logoWeather from "@/assets/image/logo-weather.png";
 import LangSelect from "@/features/translation/components/LangSelect.vue";
-import VButton from "@/shared/ui/base/VButton.vue";
+import VButton from "@/shared/components/base/VButton.vue";
 import { RouteNames } from "@/shared/variables";
 import "vue-sonner/style.css";
 </script>
 
 <template>
   <header class="header">
-    <div class="header-container container">
-      <div class="header-logo logo">
+    <div class="header__container container">
+      <div class="header__logo logo">
         <div class="logo__wrapper">
           <img
             :src="logoWeather"
@@ -27,19 +27,23 @@ import "vue-sonner/style.css";
           :text="$t('nav.weather')"
           :to="{ name: RouteNames.home }"
           icon="thermometer"
+          variant="nav"
         />
 
         <VButton
           :text="$t('nav.favorites')"
           :to="{ name: RouteNames.favorites }"
           icon="heart"
+          variant="nav"
         />
       </nav>
       <LangSelect />
     </div>
   </header>
-  <main>
-    <router-view />
+  <main class="main">
+    <div class="container main__container">
+      <router-view />
+    </div>
     <Toaster />
   </main>
 </template>
@@ -48,11 +52,15 @@ import "vue-sonner/style.css";
 @use "@/shared/styles/variables.scss" as *;
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 10px 0;
   background: linear-gradient(to right, #a9dcff 0%, #fff2b8 100%);
+  color: var(--header-text);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   &-nav {
     display: flex;
     align-items: center;
@@ -70,9 +78,11 @@ import "vue-sonner/style.css";
   }
 }
 
-.logo img {
-  width: 100%;
-  height: 100%;
+.main{
+  &__container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
 </style>

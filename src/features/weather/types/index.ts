@@ -6,6 +6,7 @@ export interface CityOptionDto {
   country: string;
   state?: string;
   local_names?: Record<string, string>;
+  favorite?: boolean;
 }
 
 export interface CityAutocompleteState {

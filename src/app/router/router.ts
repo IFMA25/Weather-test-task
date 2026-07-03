@@ -11,7 +11,6 @@ const routes: RouteRecordRaw[] = [
     component: WeatherPage,
     meta: {
       titleMenu: "weather",
-      iconMenu: "thermometer",
     },
   },
   {
@@ -20,18 +19,17 @@ const routes: RouteRecordRaw[] = [
     component: FavoritesPage,
     meta: {
       titleMenu: "favorites",
-      iconMenu: "heart",
     },
   },
   {
-    path: "/:path",
+    path: "/:pathMatch(.*)*",
     name: RouteNames.notFound,
     redirect: "/",
   },
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 

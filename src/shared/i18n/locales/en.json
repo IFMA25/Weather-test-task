@@ -14,6 +14,17 @@
     },
     "geo": {
         "error": "Failed to load geo location"
+    },
+    "modal": {
+        "deleteTitle": "Delete {entityName} card",
+        "deleteDescription": "Are you sure you want to delete this card?",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "alertTitle": "You have reached the maximum 5 of favorite cities",
+        "alertDescription": "Please remove one of the existing cities before adding a new one."
+    },
+    "favoritesPage": {
+        "title": "Favorites cities"
     }
 
 }
