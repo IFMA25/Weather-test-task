@@ -52,10 +52,12 @@ import "vue-sonner/style.css";
 @use "@/shared/styles/variables.scss" as *;
 
 .header {
-  position: absolute;
+  position: fixed;
+  width: 100%;
   padding: 10px 0;
   background: linear-gradient(to right, #a9dcff 0%, #fff2b8 100%);
   color: var(--header-text);
+  z-index: 10;
 
   &__container {
     display: flex;
@@ -65,7 +67,12 @@ import "vue-sonner/style.css";
   &-nav {
     display: flex;
     align-items: center;
-    gap: 25px;
+  }
+
+  @media(max-width: $sm) {
+    &-nav {
+    font-size: 16px;
+    }
   }
 }
 .logo {
@@ -77,11 +84,21 @@ import "vue-sonner/style.css";
     width: 40px;
     height: 40px;
   }
+
+  &__title {
+    font-size: clamp(16px, 3vw, 24px);
+  }
+
+  @media(max-width: 32rem) {
+    &__title {
+      display: none;
+    }
+  }
 }
 
 .main{
   &__container {
-    padding-top: 40px;
+    padding-top: 100px;
     padding-bottom: 40px;
   }
 }

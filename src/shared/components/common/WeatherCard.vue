@@ -10,7 +10,6 @@ import WeatherForecastChart from "@/shared/components/common/WeatherChart.vue";
 import { Coordinates } from "@/shared/types/storage";
 import type { CityOptionDto, WeatherDto } from "@/shared/types/weather";
 
-
 const { city, weather, isLoading, error, showFavoriteActions = true } = defineProps<{
   city: CityOptionDto | null;
   weather: WeatherDto | null;
@@ -167,8 +166,9 @@ const onRemove = () => {
           <span class="weather-card__label">{{ $t('weatherCard.pressure') }}</span>
           <span class="weather-card__value">{{ pressure }} hPa</span>
         </div>
-
-        <div class="weather-card__item">
+      </div>
+      <div class="weather-card__inner">
+        <div class="weather-card__inner-item">
           <VueFeather
             type="sunrise"
             size="16"
@@ -176,7 +176,7 @@ const onRemove = () => {
           <span class="weather-card__value">{{ sunrise }}</span>
         </div>
 
-        <div class="weather-card__item">
+        <div class="weather-card__inner-item">
           <VueFeather
             type="sunset"
             size="16"
@@ -205,12 +205,17 @@ const onRemove = () => {
 
 .weather-card {
   width: calc(50% - 1.875rem);
+  min-width: 31.25rem;
   margin: 1.5rem 0.9375rem 0;
   padding: 1.25rem;
   border: 1px solid var(--color-border);
   border-radius: $radius-xl;
   background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-soft) 100%);
   box-shadow: 0 8px 24px var(--color-shadow);
+
+  @media(max-width: $sm) {
+    min-width: 20.5rem;
+  }
 
   &__error {
     display: flex;
@@ -299,10 +304,21 @@ const onRemove = () => {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.875rem 1.5rem;
     padding: 0 1.125rem;
+
+    @media(max-width: $sm) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
   }
 
-   &__accordion {
-    margin-top: 0.5rem;
+  &__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.125rem;
+    &-item{
+      display: flex;
+      gap: 1rem;
+    }
   }
 
   &__item {

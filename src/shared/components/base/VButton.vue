@@ -115,6 +115,10 @@ const btnClasses = computed(() => [
   &--nav{
     background-color: transparent;
     color: var(--color-text-header);
+
+    @media(max-width: $sm) {
+      padding: 0.3rem 0.5rem;
+    }
   }
 
   &--icon {
