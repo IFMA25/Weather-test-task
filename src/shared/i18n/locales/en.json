@@ -25,6 +25,19 @@
     },
     "favoritesPage": {
         "title": "Favorites cities"
+    },
+    "weatherChart": {
+        "accordionTitle": "Forecast chart",
+        "fiveDaysTitle": "Average temperature for 5 days",
+        "dayTitle": "Temperature by hours",
+        "dayButton": "Day",
+        "fiveDaysButton": "5 days",
+        "datasetDay": "Temperature, °C",
+        "datasetFiveDays": "Average temperature, °C"
+    },
+    "notFound": {
+        "title": "Page not found",
+        "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+        "backToWeather": "Back to Home"
     }
-
 }

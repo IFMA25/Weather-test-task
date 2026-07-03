@@ -96,7 +96,7 @@ const onLeave = (el: Element) => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/styles/utils/variables.scss" as *;
+@use "@/shared/styles/variables.scss" as *;
 
 .v-accordion-item {
   border-bottom: 1px solid $black;

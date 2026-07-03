@@ -52,6 +52,7 @@ import "vue-sonner/style.css";
 @use "@/shared/styles/variables.scss" as *;
 
 .header {
+  position: absolute;
   padding: 10px 0;
   background: linear-gradient(to right, #a9dcff 0%, #fff2b8 100%);
   color: var(--header-text);

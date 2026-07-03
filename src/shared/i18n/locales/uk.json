@@ -25,5 +25,19 @@
     },
     "favoritesPage": {
         "title": "Обрані міста"
+    },
+    "weatherChart": {
+        "accordionTitle": "Прогноз",
+        "fiveDaysTitle": "Середня температура за 5 днів",
+        "dayTitle": "Температура за годинами",
+        "dayButton": "День",
+        "fiveDaysButton": "5 днів",
+        "datasetDay": "Температура, °C",
+        "datasetFiveDays": "Середня температура, °C"
+    },
+    "notFound": {
+        "title": "Сторінка не знайдена",
+        "description": "Сторінка, яку ви шукаєте, можливо, була видалена, змінила назву або тимчасово недоступна.",
+        "backToWeather": "Повернутися на головну"
     }
 }

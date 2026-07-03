@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import VueFeather from "vue-feather";
 
-import type { CityOptionDto, WeatherDto } from "../../../features/weather/types";
 import VButton from "../base/VButton.vue";
 import VSkeleton from "../base/VSkeleton.vue";
+import VAccordionItem from "../base/accordion/VAccordionItem.vue";
 
+import WeatherForecastChart from "@/shared/components/common/WeatherChart.vue";
 import { Coordinates } from "@/shared/types/storage";
+import type { CityOptionDto, WeatherDto } from "@/shared/types/weather";
 
 
 const { city, weather, isLoading, error, showFavoriteActions = true } = defineProps<{
@@ -16,6 +18,8 @@ const { city, weather, isLoading, error, showFavoriteActions = true } = definePr
   error: string | null;
   showFavoriteActions?: boolean;
 }>();
+
+const isChartOpen = ref(false);
 
 const emit = defineEmits<{
   toggleFavorite: [payload: { cityId: number; checked: boolean, coords: Coordinates }];
@@ -106,7 +110,7 @@ const onRemove = () => {
               :checked="city.favorite"
               type="checkbox"
               class="favorite-toggle__input"
-              aria-label="Add to favorites"
+              :aria-label="$t('weatherCard.addToFavorites')"
               @change="onFavoriteChange"
             >
 
@@ -143,25 +147,24 @@ const onRemove = () => {
           </div>
         </div>
       </div>
-
       <div class="weather-card__grid">
         <div class="weather-card__item">
-          <span class="weather-card__label">Feels like</span>
+          <span class="weather-card__label">{{ $t('weatherCard.feelsLike') }}</span>
           <span class="weather-card__value">{{ feelsLike }}°C</span>
         </div>
 
         <div class="weather-card__item">
-          <span class="weather-card__label">Humidity</span>
+          <span class="weather-card__label">{{ $t('weatherCard.humidity') }}</span>
           <span class="weather-card__value">{{ humidity }}%</span>
         </div>
 
         <div class="weather-card__item">
-          <span class="weather-card__label">Wind</span>
+          <span class="weather-card__label">{{ $t('weatherCard.wind') }}</span>
           <span class="weather-card__value">{{ windSpeed }} m/s</span>
         </div>
 
         <div class="weather-card__item">
-          <span class="weather-card__label">Pressure</span>
+          <span class="weather-card__label">{{ $t('weatherCard.pressure') }}</span>
           <span class="weather-card__value">{{ pressure }} hPa</span>
         </div>
 
@@ -181,6 +184,18 @@ const onRemove = () => {
           <span class="weather-card__value">{{ sunset }}</span>
         </div>
       </div>
+      <VAccordionItem
+        id="forecast-chart"
+        class="weather-card__accordion"
+        :is-open="isChartOpen"
+        :title="$t('weatherChart.accordionTitle')"
+        @toggle="isChartOpen = !isChartOpen"
+      >
+        <WeatherForecastChart
+          v-if="isChartOpen"
+          :city="city"
+        />
+      </VAccordionItem>
     </div>
   </section>
 </template>
@@ -284,6 +299,10 @@ const onRemove = () => {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.875rem 1.5rem;
     padding: 0 1.125rem;
+  }
+
+   &__accordion {
+    margin-top: 0.5rem;
   }
 
   &__item {

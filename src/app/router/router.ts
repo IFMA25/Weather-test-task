@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from "vue-router";
 
 import FavoritesPage from "@/pages/FavoritesPage.vue";
+import NotFoundPage from "@/pages/NotFoundPage.vue";
 import WeatherPage from "@/pages/WeatherPage.vue";
 import { RouteNames } from "@/shared/variables";
 
@@ -24,7 +25,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/:pathMatch(.*)*",
     name: RouteNames.notFound,
-    redirect: "/",
+    component: NotFoundPage,
   },
 ];
 

@@ -4,11 +4,11 @@ import { ref, onMounted, useTemplateRef } from "vue";
 import AlertModal from "@/features/weather/components/AlertModal.vue";
 import CitySearchInput from "@/features/weather/components/CitySearchInput.vue";
 import ConfirmModal from "@/features/weather/components/ConfirmModal.vue";
-import type { CityOptionDto } from "@/features/weather/types";
 import VButton from "@/shared/components/base/VButton.vue";
 import WeatherCard from "@/shared/components/common/WeatherCard.vue";
 import { useWeatherStore } from "@/shared/store/weather.store";
 import { Coordinates } from "@/shared/types/storage";
+import { CityOptionDto } from "@/shared/types/weather";
 
 const selectedCity = ref<CityOptionDto | null>(null);
 const deletePayload = ref<{ cardId: string; cityName: string } | null>(null);

@@ -7,8 +7,6 @@ import {
   useLanguageStore,
 } from "@/shared/i18n/store/useLanguageStore";
 
-
-
 const localeLabels: Record<string, string> = {
   en: "EN",
   uk: "UA",

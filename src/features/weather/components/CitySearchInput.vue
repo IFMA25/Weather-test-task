@@ -3,10 +3,10 @@ import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 
 import { useCityAutocomplete } from "../composables/useCityAutocomplete";
-import type { CityOptionDto } from "../types";
 
 import VInput from "@/shared/components/base/VInput.vue";
 import VSkeleton from "@/shared/components/base/VSkeleton.vue";
+import { CityOptionDto } from "@/shared/types/weather";
 
 const SKELETON_COUNT = 5;
 
