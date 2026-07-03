@@ -7,7 +7,7 @@ import ConfirmModal from "@/features/weather/components/ConfirmModal.vue";
 import VButton from "@/shared/components/base/VButton.vue";
 import VLoader from "@/shared/components/base/VLoader.vue";
 import WeatherCard from "@/shared/components/common/WeatherCard.vue";
-import { useWeatherStore } from "@/shared/store/weather.store";
+import { useWeatherStore } from "@/shared/store/useWeatherStore";
 import { Coordinates } from "@/shared/types/storage";
 import { CityOptionDto } from "@/shared/types/weather";
 
@@ -28,7 +28,12 @@ const onAddCity = async () => {
 
   const result = await weatherStore.addWeatherCard(selectedCity.value);
 
-  if (!result?.success) return;
+  if (!result?.success) {
+    if (result.reason === "card-limit") {
+      alertModalRef.value?.open();
+    }
+    return;
+  }
 
   selectedCity.value = null;
   citySearchInputRef.value?.reset();

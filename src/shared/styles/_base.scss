@@ -8,7 +8,7 @@ body,
 
 #app {
   min-height: 100vh;
-  background: url("@/assets/image/952.jpg") top center / cover no-repeat;
+  background: var(--app-bg-image) top center / cover no-repeat;
 }
 
 html {

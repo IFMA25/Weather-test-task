@@ -82,10 +82,6 @@ defineExpose({
             width="40%"
             height="1.2rem"
           />
-          <VSkeleton
-            width="25%"
-            height="0.875rem"
-          />
         </li>
       </ul>
       <ul
@@ -131,6 +127,8 @@ defineExpose({
     margin: 0;
     padding: 0;
     list-style: none;
+    background-color: var(--color-surface);
+    color: var(--color-text);
   }
 
   &__option {

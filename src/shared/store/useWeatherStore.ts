@@ -22,6 +22,7 @@ export const useWeatherStore = defineStore("weather", () => {
   const favoriteWeatherCards = ref<WeatherCardItem[]>([]);
   const favoriteCities = ref<FavoriteCity[]>([]);
   const isPending = ref(false);
+  const isPendingFavorites = ref(false);
 
   const { t } = useI18n();
 
@@ -75,7 +76,7 @@ export const useWeatherStore = defineStore("weather", () => {
   };
 
   const loadFavoriteWeatherCards = async () => {
-    isPending.value = true;
+    isPendingFavorites.value = true;
     try {
       loadFavoriteCities();
 
@@ -107,7 +108,7 @@ export const useWeatherStore = defineStore("weather", () => {
     } catch {
       toast.error(t("weather.error"));
     } finally {
-      isPending.value = false;
+      isPendingFavorites.value = false;
     }
   };
 

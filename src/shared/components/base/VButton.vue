@@ -106,8 +106,6 @@ const btnClasses = computed(() => [
     padding: 0.625rem 1.25rem;
     border-radius: 0.5rem;
     font-weight: 500;
-
-
   }
   &:hover {
       background-color: var(--button-bg-hover);
@@ -135,7 +133,6 @@ const btnClasses = computed(() => [
   }
 
   &--active {
-    font-weight: 600;
     color: var(--button-active);
   }
 

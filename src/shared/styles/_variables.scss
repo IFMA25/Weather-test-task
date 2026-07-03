@@ -21,6 +21,10 @@ $font-inter-extrabold: "Inter-ExtraBold", sans-serif;
 
 
 :root {
+  --app-bg-image: url("@/assets/image/main-bg.jpg");
+  --header-bg-gradient: linear-gradient(to right, #58ace4 0%, #ebe6d2 100%);
+  --input-bg-gradient: linear-gradient(135deg, #71abd4 0%, #f8fbfc 100%);
+  --input-bg-gradient-hover: linear-gradient(135deg, #f8fbfc 0%, #71abd4 100%);
   --color-text: #183153;
   --color-text-secondary: #4b6480;
   --color-text-inverse: #ffffff;
@@ -40,7 +44,6 @@ $font-inter-extrabold: "Inter-ExtraBold", sans-serif;
   --color-accent: #fff2b8;
   --color-info: #a9dcff;
 
-  --header-bg: linear-gradient(to right, #a9dcff 0%, #fff2b8 100%);
   --header-text: #183153;
 
   --nav-bg: rgba(255, 255, 255, 0.35);
@@ -71,6 +74,10 @@ $font-inter-extrabold: "Inter-ExtraBold", sans-serif;
 }
 
 [data-theme="dark"] {
+  --app-bg-image: url("@/assets/image/dark-bg.jpg");
+  --header-bg-gradient: linear-gradient(to right, #0a2a3f 0%, #82bfe7 100%);
+  --input-bg-gradient: linear-gradient(135deg, #162133 0%, #7e9ab6 100%);
+  --input-bg-gradient-hover: linear-gradient(135deg, #7e9ab6  0%, #162133d1 100%);
   --color-text: #eaf4ff;
   --color-text-secondary: #b7c9dc;
   --color-text-inverse: #0f1a2b;

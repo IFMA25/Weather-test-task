@@ -4,7 +4,7 @@ import { onMounted, ref, useTemplateRef } from "vue";
 import ConfirmModal from "@/features/weather/components/ConfirmModal.vue";
 import VLoader from "@/shared/components/base/VLoader.vue";
 import WeatherCard from "@/shared/components/common/WeatherCard.vue";
-import { useWeatherStore } from "@/shared/store/weather.store";
+import { useWeatherStore } from "@/shared/store/useWeatherStore";
 
 const weatherStore = useWeatherStore();
 

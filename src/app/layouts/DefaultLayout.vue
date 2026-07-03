@@ -1,17 +1,29 @@
 <script setup lang="ts">
 import { Toaster } from "vue-sonner";
+import "vue-sonner/style.css";
 
 import logoWeather from "@/assets/image/logo-weather.png";
+import ThemeToggle from "@/features/theme/components/ThemeToggle.vue";
 import LangSelect from "@/features/translation/components/LangSelect.vue";
 import VButton from "@/shared/components/base/VButton.vue";
+import { useLanguageStore } from "@/shared/i18n/store/useLanguageStore";
+import { useThemeStore } from "@/shared/store/useThemeStore";
 import { RouteNames } from "@/shared/variables";
-import "vue-sonner/style.css";
+
+const themeStore = useThemeStore();
+const languageStore = useLanguageStore();
+
+themeStore.initTheme();
+languageStore.initLanguage();
 </script>
 
 <template>
   <header class="header">
     <div class="header__container container">
-      <div class="header__logo logo">
+      <RouterLink
+        to="/"
+        class="header__logo logo"
+      >
         <div class="logo__wrapper">
           <img
             :src="logoWeather"
@@ -21,30 +33,36 @@ import "vue-sonner/style.css";
         <h2 class="logo__title">
           Cloudora
         </h2>
+      </RouterLink>
+      <div class="header__controls">
+        <ThemeToggle />
+        <LangSelect />
       </div>
-      <nav class="header-nav">
-        <VButton
-          :text="$t('nav.weather')"
-          :to="{ name: RouteNames.home }"
-          icon="thermometer"
-          variant="nav"
-        />
-
-        <VButton
-          :text="$t('nav.favorites')"
-          :to="{ name: RouteNames.favorites }"
-          icon="heart"
-          variant="nav"
-        />
-      </nav>
-      <LangSelect />
     </div>
   </header>
+  <nav class="nav-buttons">
+    <VButton
+      :text="$t('nav.weather')"
+      :to="{ name: RouteNames.home }"
+      icon="thermometer"
+      variant="nav"
+    />
+
+    <VButton
+      :text="$t('nav.favorites')"
+      :to="{ name: RouteNames.favorites }"
+      icon="heart"
+      variant="nav"
+    />
+  </nav>
   <main class="main">
     <div class="container main__container">
       <router-view />
     </div>
-    <Toaster />
+    <Toaster
+      position="top-right"
+      rich-colors
+    />
   </main>
 </template>
 
@@ -55,7 +73,7 @@ import "vue-sonner/style.css";
   position: fixed;
   width: 100%;
   padding: 10px 0;
-  background: linear-gradient(to right, #a9dcff 0%, #fff2b8 100%);
+  background: var(--header-bg-gradient);
   color: var(--header-text);
   z-index: 10;
 
@@ -64,17 +82,24 @@ import "vue-sonner/style.css";
     align-items: center;
     justify-content: space-between;
   }
-  &-nav {
+
+  &__controls {
     display: flex;
     align-items: center;
-  }
-
-  @media(max-width: $sm) {
-    &-nav {
-    font-size: 16px;
-    }
+    gap: 20px;
   }
 }
+
+.nav-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  padding-top: 90px;
+  font-weight: 700;
+  color: var(--header-text);
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -98,7 +123,7 @@ import "vue-sonner/style.css";
 
 .main{
   &__container {
-    padding-top: 100px;
+    padding-top: 40px;
     padding-bottom: 40px;
   }
 }

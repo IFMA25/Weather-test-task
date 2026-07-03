@@ -183,7 +183,7 @@ const updateModelValue = (event: Event) => {
     padding: 0.875rem 1rem;
     border: 1px solid var(--input-border);
     border-radius: $radius-xl;
-    background: linear-gradient(135deg, #71abd4 0%, #f8fbfc 100%);
+    background: var(--input-bg-gradient);
     color: var(--input-text);
     font-family: $font-inter-regular;
     font-size: 1rem;
@@ -202,7 +202,7 @@ const updateModelValue = (event: Event) => {
 
     &:hover:not(:disabled) {
       border-color: rgba(63, 127, 216, 0.32);
-      background: linear-gradient(135deg, #f2faff 0%, #fbfcfd 100%);
+      background: var(--input-bg-gradient-hover);
     }
 
     &:focus {
@@ -210,7 +210,7 @@ const updateModelValue = (event: Event) => {
       box-shadow:
         0 0 0 3px rgba(63, 127, 216, 0.16),
         0 10px 24px var(--color-shadow);
-      background: linear-gradient(135deg, #f4fbff 0%, #ffffff 100%);
+      background:var(--input-bg-gradient-hover);
     }
 
     &:hover:not(:disabled)::placeholder, &:focus::placeholder {
