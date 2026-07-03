@@ -82,4 +82,4 @@ public/
 
 ## Посилання
 
-- Demo: https://weather-test-task.pages.dev/
+- Demo: [https://weather-test-task.pages.dev/](https://ifma25.github.io/Weather-test-task/#/)
