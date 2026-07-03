@@ -5,6 +5,7 @@ import AlertModal from "@/features/weather/components/AlertModal.vue";
 import CitySearchInput from "@/features/weather/components/CitySearchInput.vue";
 import ConfirmModal from "@/features/weather/components/ConfirmModal.vue";
 import VButton from "@/shared/components/base/VButton.vue";
+import VLoader from "@/shared/components/base/VLoader.vue";
 import WeatherCard from "@/shared/components/common/WeatherCard.vue";
 import { useWeatherStore } from "@/shared/store/weather.store";
 import { Coordinates } from "@/shared/types/storage";
@@ -93,7 +94,7 @@ onMounted(() => {
     />
   </div>
   <div
-    v-if="weatherStore.weatherCards.length"
+    v-if="weatherStore.weatherCards.length && !weatherStore.isPending"
     class="weather-page__cards"
   >
     <WeatherCard
@@ -101,15 +102,20 @@ onMounted(() => {
       :key="card.id"
       :city="card.selectedCity"
       :weather="card.weather"
-      :is-loading="card.isLoading"
       :error="card.error"
       @remove="openDeleteModal(card.id, card.selectedCity?.name ?? '')"
       @toggle-favorite="handleToggleFavorite"
     />
   </div>
   <div
+    v-else-if="weatherStore.isPending"
+    class="weather-page__loader page-loader"
+  >
+    <VLoader />
+  </div>
+  <div
     v-else
-    class="weather-page__state"
+    class="weather-page__state fallback-state"
   >
     {{ $t("weather.selectCity") }}
   </div>
@@ -130,16 +136,6 @@ onMounted(() => {
     flex-wrap: wrap;
     margin-left: -0.9375rem;
     margin-right: -0.9375rem;
-  }
-  &__state {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 11.25rem;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--color-text);
-    text-align: center;
   }
 }
 </style>

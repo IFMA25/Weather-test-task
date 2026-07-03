@@ -115,6 +115,14 @@ const btnClasses = computed(() => [
   &--nav{
     background-color: transparent;
     color: var(--color-text-header);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+
+    &:hover {
+      background-color: transparent;
+      border-bottom: 1px solid var(--button-bg);
+    }
 
     @media(max-width: $sm) {
       padding: 0.3rem 0.5rem;

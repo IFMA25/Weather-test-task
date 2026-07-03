@@ -31,7 +31,6 @@ export const useWeatherStore = defineStore("weather", () => {
     id: crypto.randomUUID(),
     selectedCity: null,
     weather: null,
-    isLoading: false,
     error: null,
     ...options,
   });
@@ -76,6 +75,7 @@ export const useWeatherStore = defineStore("weather", () => {
   };
 
   const loadFavoriteWeatherCards = async () => {
+    isPending.value = true;
     try {
       loadFavoriteCities();
 
@@ -106,6 +106,8 @@ export const useWeatherStore = defineStore("weather", () => {
       );
     } catch {
       toast.error(t("weather.error"));
+    } finally {
+      isPending.value = false;
     }
   };
 

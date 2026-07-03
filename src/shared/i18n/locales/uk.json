@@ -24,7 +24,8 @@
         "alertDescription": "Будь ласка, видаліть одне з наявних міст, перш ніж додавати нове."
     },
     "favoritesPage": {
-        "title": "Обрані міста"
+        "title": "Обрані міста",
+        "empty": "Немає обраних міст"
     },
     "weatherChart": {
         "accordionTitle": "Прогноз",

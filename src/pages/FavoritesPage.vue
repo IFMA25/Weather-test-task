@@ -2,6 +2,7 @@
 import { onMounted, ref, useTemplateRef } from "vue";
 
 import ConfirmModal from "@/features/weather/components/ConfirmModal.vue";
+import VLoader from "@/shared/components/base/VLoader.vue";
 import WeatherCard from "@/shared/components/common/WeatherCard.vue";
 import { useWeatherStore } from "@/shared/store/weather.store";
 
@@ -42,17 +43,31 @@ onMounted(() => {
     {{ $t("favoritesPage.title") }}
   </h2>
 
-  <div class="favorites">
+  <div
+    v-if="weatherStore.favoriteWeatherCards.length"
+    class="favorites"
+  >
     <WeatherCard
       v-for="card in weatherStore.favoriteWeatherCards"
       :key="card.id"
       :city="card.selectedCity"
       :weather="card.weather"
-      :is-loading="card.isLoading"
       :error="card.error"
       :show-favorite-actions="false"
       @remove="openDeleteModal(card.selectedCity?.id ?? 0, card.selectedCity?.name ?? '')"
     />
+  </div>
+  <div
+    v-else-if="weatherStore.isPending"
+    class="favorites__loader page-loader"
+  >
+    <VLoader />
+  </div>
+  <div
+    v-else
+    class="favorites__state fallback-state"
+  >
+    {{ $t("favoritesPage.empty") }}
   </div>
 </template>
 

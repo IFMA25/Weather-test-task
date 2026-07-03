@@ -1,0 +1,18 @@
+  .page-loader {
+    width: 7rem;
+    height: 7rem;
+    margin: 0 auto;
+    color: var(--color-text);
+    margin-top: 7rem;
+  }
+
+  .fallback-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 11.25rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    text-align: center;
+  }

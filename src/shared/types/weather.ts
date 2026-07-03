@@ -54,7 +54,6 @@ export interface WeatherCardItem {
   id: string;
   selectedCity: CityOptionDto | null;
   weather: WeatherDto | null;
-  isLoading: boolean;
   error: string | null;
 }
 

@@ -3,17 +3,15 @@ import { computed, ref } from "vue";
 import VueFeather from "vue-feather";
 
 import VButton from "../base/VButton.vue";
-import VSkeleton from "../base/VSkeleton.vue";
 import VAccordionItem from "../base/accordion/VAccordionItem.vue";
 
 import WeatherForecastChart from "@/shared/components/common/WeatherChart.vue";
 import { Coordinates } from "@/shared/types/storage";
 import type { CityOptionDto, WeatherDto } from "@/shared/types/weather";
 
-const { city, weather, isLoading, error, showFavoriteActions = true } = defineProps<{
+const { city, weather, error, showFavoriteActions = true } = defineProps<{
   city: CityOptionDto | null;
   weather: WeatherDto | null;
-  isLoading: boolean;
   error: string | null;
   showFavoriteActions?: boolean;
 }>();
@@ -75,25 +73,7 @@ const onRemove = () => {
 <template>
   <section class="weather-card">
     <div
-      v-if="isLoading"
-      class="weather-card__skeleton"
-    >
-      <VSkeleton
-        width="100%"
-        height="100px"
-        rounded="md"
-      />
-    </div>
-
-    <div
-      v-else-if="error"
-      class="weather-card__error"
-    >
-      {{ error }}
-    </div>
-
-    <div
-      v-else-if="weather"
+      v-if="weather"
       class="weather-card__content"
     >
       <div class="weather-card__main">
@@ -109,7 +89,6 @@ const onRemove = () => {
               :checked="city.favorite"
               type="checkbox"
               class="favorite-toggle__input"
-              :aria-label="$t('weatherCard.addToFavorites')"
               @change="onFavoriteChange"
             >
 
@@ -196,6 +175,12 @@ const onRemove = () => {
           :city="city"
         />
       </VAccordionItem>
+    </div>
+    <div
+      v-else-if="error"
+      class="weather-card__error"
+    >
+      {{ error }}
     </div>
   </section>
 </template>

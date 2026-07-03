@@ -24,7 +24,8 @@
         "alertDescription": "Please remove one of the existing cities before adding a new one."
     },
     "favoritesPage": {
-        "title": "Favorites cities"
+        "title": "Favorites cities",
+        "empty": "No favorite cities yet"
     },
     "weatherChart": {
         "accordionTitle": "Forecast chart",
