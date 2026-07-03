@@ -5,8 +5,8 @@ import { toast } from "vue-sonner";
 
 import { getUserLocationByIp } from "@/features/weather/api/geoApi";
 import { getCurrentWeather } from "@/features/weather/api/weatherApi";
-import type { CityOptionDto, WeatherCardItem } from "@/features/weather/types";
 import type { Coordinates, FavoriteCity } from "@/shared/types/storage";
+import type { CityOptionDto, WeatherCardItem } from "@/shared/types/weather";
 import {
   setToLocalStorage,
   getFromLocalStorage,

@@ -4,7 +4,8 @@ import { onUnmounted, reactive, toRefs } from "vue";
 import { useI18n } from "vue-i18n";
 
 import { searchCities } from "@/features/weather/api/weatherApi";
-import { CityAutocompleteState, CityOptionDto } from "@/features/weather/types";
+import type { CityAutocompleteState } from "@/features/weather/types";
+import type { CityOptionDto } from "@/shared/types/weather";
 
 
 const DEBOUNCE_DELAY = 400;
