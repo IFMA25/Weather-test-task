@@ -3,7 +3,6 @@ import VButton from "@/shared/components/base/VButton.vue";
 import VModal from "@/shared/components/base/VModal.vue";
 import { useModal } from "@/shared/composables/useModal";
 
-
 const { id, entityName, loading } = defineProps<{
   id: string;
   entityName: string;

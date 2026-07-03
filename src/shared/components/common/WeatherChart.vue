@@ -41,22 +41,12 @@ const formatDayLabel = (dateKey: string) =>
     month: "short",
   });
 
-const getTodayKey = (timezoneShiftSeconds = 0) => {
-  const now = new Date();
-  const utcMs = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
-  const cityMs = utcMs + timezoneShiftSeconds * 1000;
+const getDayChartData = (items: ForecastItemDto[]): PreparedChartData => {
 
-  return new Date(cityMs).toISOString().slice(0, 10);
-};
-
-const getDayChartData = (
-  items: ForecastItemDto[],
-  timezoneShiftSeconds = 0,
-): PreparedChartData => {
-  const todayKey = getTodayKey(timezoneShiftSeconds);
+  const firstAvailableDay = items[0].dt_txt.slice(0, 10);
 
   const dayItems = items
-    .filter((item) => item.dt_txt.startsWith(todayKey))
+    .filter((item) => item.dt_txt.slice(0, 10) === firstAvailableDay)
     .sort((a, b) => a.dt - b.dt);
 
   return {
@@ -99,7 +89,7 @@ const modes = computed(() => ({
     datasetLabel: t("weatherChart.datasetDay"),
     buttonText: t("weatherChart.dayButton"),
     prepareData: (payload: ForecastResponseDto) =>
-      getDayChartData(payload.list, payload.city.timezone),
+      getDayChartData(payload.list),
   },
   fiveDays: {
     key: "fiveDays" as const,

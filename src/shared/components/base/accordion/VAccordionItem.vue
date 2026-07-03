@@ -101,6 +101,10 @@ const onLeave = (el: Element) => {
 .v-accordion-item {
   border-bottom: 1px solid $black;
 
+  &__header{
+    color: var(--color-text);
+  }
+
   &:last-child {
     border-bottom: 0;
   }

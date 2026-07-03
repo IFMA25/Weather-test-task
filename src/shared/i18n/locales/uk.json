@@ -28,7 +28,7 @@
         "empty": "Немає обраних міст"
     },
     "weatherChart": {
-        "accordionTitle": "Прогноз",
+        "accordionTitle": "Графік температур",
         "fiveDaysTitle": "Середня температура за 5 днів",
         "dayTitle": "Температура за годинами",
         "dayButton": "День",
@@ -42,9 +42,9 @@
         "backToWeather": "Повернутися на головну"
     },
     "weatherCard": {
-      "pressure": "Тиск",
-      "wind": "Вітер",
-      "humidity": "Вологість",
-      "feelsLike": "Відчувається як"
+        "pressure": "Тиск",
+        "wind": "Вітер",
+        "humidity": "Вологість",
+        "feelsLike": "Відчувається як"
     }
 }

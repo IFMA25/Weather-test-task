@@ -28,7 +28,7 @@
         "empty": "No favorite cities yet"
     },
     "weatherChart": {
-        "accordionTitle": "Forecast chart",
+        "accordionTitle": "Temperature chart",
         "fiveDaysTitle": "Average temperature for 5 days",
         "dayTitle": "Temperature by hours",
         "dayButton": "Day",
@@ -42,9 +42,9 @@
         "backToWeather": "Back to Home"
     },
     "weatherCard": {
-      "pressure": "Pressure",
-      "wind": "Wind",
-      "humidity": "Humidity",
-      "feelsLike": "Feels like"
+        "pressure": "Pressure",
+        "wind": "Wind",
+        "humidity": "Humidity",
+        "feelsLike": "Feels like"
     }
 }

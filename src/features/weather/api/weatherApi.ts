@@ -1,7 +1,6 @@
 import { apiClient } from "@/shared/api/apiClient";
 import type { CityOptionDto, WeatherDto } from "@/shared/types/weather";
 
-
 export const searchCities = async (query: string, signal?: AbortSignal) => {
   const { data } = await apiClient.get<CityOptionDto[]>("/geo/1.0/direct", {
     params: {
